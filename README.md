@@ -1,6 +1,6 @@
 # DGNN
 Pytorch implementation of "Streaming Graph Neural Network" 
-(https://dl.acm.org/doi/epdf/10.1145/3397271.3401092)(https://arxiv.org/abs/1810.10627)
+(https://arxiv.org/abs/1810.10627)
 (I'm not author just trying to reproduce the experiment results)
 
 
