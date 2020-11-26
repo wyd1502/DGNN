@@ -5,7 +5,7 @@ Pytorch implementation of "Streaming Graph Neural Network"
 
 
 The best result of my implementation on UCI dataset is :
-mrr: 0.02587241562385947, recall@20: 0.1276123188405797, recall@50:0.20776449275362321.
+mrr: 0.02587241, recall@20: 0.12761231, recall@50:0.207764492.
 
 The result in orgin paper is :
 mrr:0.0342 recall@20:0.1284  recall@50: 0.2547
