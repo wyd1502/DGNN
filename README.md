@@ -12,5 +12,5 @@ mrr:0.0342 recall@20:0.1284  recall@50: 0.2547.
 
 Any changes to the existing implementation are welcome.
 
-The main difficulty is how to process several events in one batch(batch size > 1). I borrow the message aggregation idea from Tgn(http://arxiv.org/abs/2006.10637) to solve the problem. Besides, I only use two propagation module in my implementation not four in the origin paper.
+The main difficulty is how to process several events in one batch(batch size > 1). I borrow the message aggregation idea from Tgn(http://arxiv.org/abs/2006.10637) to solve the problem. Besides, I have not used 4 propagation module as the paper does but 2 in my implementation.
 
