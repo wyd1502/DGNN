@@ -44,6 +44,7 @@ parser.add_argument('--different_new_nodes', action='store_true',
 parser.add_argument('--uniform', action='store_true',
                     help='take uniform sampling from temporal neighbors')
 parser.add_argument('--seed', type=int, default=0, help='random seed')
+parser.add_argument('--threshold', type=int, default=2, help='time threshold')
 
 try:
   args = parser.parse_args()
@@ -129,7 +130,7 @@ for i in range(args.n_runs):
             message_dimension=MESSAGE_DIM, memory_dimension=MEMORY_DIM,
             aggregator_type=args.aggregator, n_neighbors=NUM_NEIGHBORS,
             mean_time_shift_src=mean_time_shift_src, std_time_shift_src=std_time_shift_src,
-            mean_time_shift_dst=mean_time_shift_dst, std_time_shift_dst=std_time_shift_dst)
+            mean_time_shift_dst=mean_time_shift_dst, std_time_shift_dst=std_time_shift_dst, threshold=args.threshold)
   for a in dgnn.parameters():
     if a.ndim > 1:
       torch.nn.init.xavier_uniform_(a)

@@ -18,7 +18,7 @@ class DGNN(nn.Module):
                  memory_update_at_start=True, message_dimension=100,
                  memory_dimension=200, n_neighbors=None, aggregator_type="last",
                  mean_time_shift_src=0, std_time_shift_src=1, mean_time_shift_dst=0,
-                 std_time_shift_dst=1):
+                 std_time_shift_dst=1, threshold=2):
         super(DGNN, self).__init__()
         self.neighbor_finder = neighbor_finder
         self.device = device
@@ -35,6 +35,7 @@ class DGNN(nn.Module):
         self.memory_s = None
         self.memory_g = None
 
+        self.threshold = threshold
         self.mean_time_shift_src = mean_time_shift_src
         self.std_time_shift_src = std_time_shift_src
         self.mean_time_shift_dst = mean_time_shift_dst
@@ -68,12 +69,12 @@ class DGNN(nn.Module):
         self.propagater_s = Propagater(memory=self.memory_s, message_dimension=message_dimension,
                                        memory_dimension=self.memory_dimension,
                                        mean_time_shift_src=self.mean_time_shift_src / 2,
-                                       neighbor_finder=self.neighbor_finder, n_neighbors=self.n_neighbors, tau=2,
+                                       neighbor_finder=self.neighbor_finder, n_neighbors=self.n_neighbors, tau=self.threshold,
                                        device=self.device)
         self.propagater_g = Propagater(memory=self.memory_g, message_dimension=message_dimension,
                                        memory_dimension=self.memory_dimension,
                                        mean_time_shift_src=self.mean_time_shift_dst / 2,
-                                       neighbor_finder=self.neighbor_finder, n_neighbors=self.n_neighbors, tau=2,
+                                       neighbor_finder=self.neighbor_finder, n_neighbors=self.n_neighbors, tau=self.threshold,
                                        device=self.device)
         self.W_s = nn.Parameter(torch.zeros((memory_dimension, memory_dimension // 2)).to(self.device))
         #nn.xavier_

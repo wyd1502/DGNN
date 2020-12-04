@@ -11,7 +11,7 @@ class Propagater(nn.Module):
         self.layer_norm = torch.nn.LayerNorm(memory_dimension)
         self.message_dimension = message_dimension
         self.device = device
-        self.alpha = 1 / mean_time_shift_src
+        self.alpha = 2
         self.neighbor_finder = neighbor_finder
         self.n_neighbors = n_neighbors
         self.tau = tau * mean_time_shift_src

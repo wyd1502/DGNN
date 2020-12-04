@@ -1,1 +1,1 @@
-python trainUCI.py --bs 100 --prefix ucitest2.3 --n_runs 15 --different_new_nodes --gpu 1 --lr 0.0000005 --patience 25
+python trainUCI.py --bs 100 --prefix ucitest2.3 --n_runs 15 --different_new_nodes --gpu 1 --lr 0.0000005 --patience 25 --threshold 25

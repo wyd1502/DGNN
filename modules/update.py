@@ -11,7 +11,7 @@ class MemoryUpdater(nn.Module):
     self.layer_norm = torch.nn.LayerNorm(memory_dimension)
     self.message_dimension = message_dimension
     self.device = device
-    self.alpha = 1/mean_time_shift_src
+    self.alpha = 2
 
     self.sig = nn.Sigmoid()
     self.tanh = nn.Tanh()
